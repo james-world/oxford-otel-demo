@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{931DDFF7-A441-4095-A01C-C4C43D0706D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechDemo.WebApi", "src\TechDemo.WebApi\TechDemo.WebApi.csproj", "{EB5CEC51-7104-47D5-966D-C695943E50C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{D7665C14-CC6D-442D-AADF-5BC4A0E0C4DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechDemo.Client", "src\TechDemo.Client\TechDemo.Client.csproj", "{293A0246-64A7-4ABE-A01E-BF26F9E1C779}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7665C14-CC6D-442D-AADF-5BC4A0E0C4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7665C14-CC6D-442D-AADF-5BC4A0E0C4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB5CEC51-7104-47D5-966D-C695943E50C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB5CEC51-7104-47D5-966D-C695943E50C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB5CEC51-7104-47D5-966D-C695943E50C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB5CEC51-7104-47D5-966D-C695943E50C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293A0246-64A7-4ABE-A01E-BF26F9E1C779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293A0246-64A7-4ABE-A01E-BF26F9E1C779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293A0246-64A7-4ABE-A01E-BF26F9E1C779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293A0246-64A7-4ABE-A01E-BF26F9E1C779}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB5CEC51-7104-47D5-966D-C695943E50C1} = {931DDFF7-A441-4095-A01C-C4C43D0706D9}
+		{293A0246-64A7-4ABE-A01E-BF26F9E1C779} = {931DDFF7-A441-4095-A01C-C4C43D0706D9}
+	EndGlobalSection
+EndGlobal
