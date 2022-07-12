@@ -3,9 +3,10 @@
 ## Running the code
 
 - Run `.\build` from a powershell / bash prompt to build.
-- Run `docker compose up` (docker required!) to start an Open Telemetry Collection and various Backends
-- Start the API project with `dotnet run --project src/TechDemo.WebApi`
-- Run the client to send in a call with `dotnet run --project src/TechDemo.Client`
+- Run `docker compose up` (docker required!) or `.\run-otel.ps1` to start an Open Telemetry Collection and various Backends
+- Start the API project with `dotnet run --project src/TechDemo.WebApi` or `.\run-api.ps1`
+- Run the client to send in a call with `dotnet run --project src/TechDemo.Client` or `.\run-client.ps1`
+    - The client will call the server, and a trace will be logged across the call consisting of three spans. The inner span 'foo' will have some events recorded. A log entry will be recorded by the server. A metric called 'my-counter' will be incremented. The third time the API is called, it will thrown an exception, and record that to the trace.
 - When you are done, use CTRL+C to stop docker compose, and run `docker compose down` to dispose of all resources.
 
 Browse the various backends to look at the data:
@@ -27,10 +28,10 @@ Find out all about Open Telemetry [here](https://opentelemetry.io)
 
 A few references used for config:
 
-    - Building the docker-compose for otel-collector, jaegar, zipkin and prometheus: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/examples/demo
-    - Adding grafana and loki:
-    - https://raw.githubusercontent.com/grafana/loki/v2.6.0/production/docker-compose.yaml
-    - https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/lokiexporter/README.md
+- Building the docker-compose for otel-collector, jaegar, zipkin and prometheus: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/examples/demo
+- Adding grafana and loki:
+- https://raw.githubusercontent.com/grafana/loki/v2.6.0/production/docker-compose.yaml
+- https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/lokiexporter/README.md
 
 Loki doesn't like labels with '.' in so setting up renames in otel-collector-config.yaml is important. Use otel console logging in
 .NET to see the attributes and resources being written that need fixing. If any are bad, the whole log message is dropped.
@@ -43,6 +44,7 @@ to the command used to start the otel collector.
 ## Telemetry in .NET
 
 See https://github.com/open-telemetry/opentelemetry-dotnet for general configuration.
+See https://opentelemetry.io/docs/instrumentation/net/getting-started/ for a good getting started guide.
 
 ## Backend Docs
 
