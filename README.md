@@ -1,19 +1,21 @@
 # Open Telemetry Demo
 
+This is the demo I gave for @dotnetoxford on July 12 2022. It has a complete "collector" configuration wired up to a variety of popular backends with a C# demo client and server talking to it. It demonstrates sending traces, metrics and logs through otel.
+
 ## Running the code
 
 - Run `.\build` from a powershell / bash prompt to build.
 - Run `docker compose up` (docker required!) or `.\run-otel.ps1` to start an Open Telemetry Collection and various Backends
 - Start the API project with `dotnet run --project src/TechDemo.WebApi` or `.\run-api.ps1`
 - Run the client to send in a call with `dotnet run --project src/TechDemo.Client` or `.\run-client.ps1`
-    - The client will call the server, and a trace will be logged across the call consisting of three spans. The inner span 'foo' will have some events recorded. A log entry will be recorded by the server. A metric called 'my-counter' will be incremented. The third time the API is called, it will thrown an exception, and record that to the trace.
+    - The client will call the server, and a trace will be logged across the call consisting of three spans. The inner span 'foo' will have some events recorded. A log entry will be recorded by the server. A metric called 'my-counter' will be incremented. The third time the API is called, it will throw an exception, and attach that to the trace.
 - When you are done, use CTRL+C to stop docker compose, and run `docker compose down` to dispose of all resources.
 
-Browse the various backends to look at the data:
+Browse the various backends to look at the data collected.
 
-- Grafana at `http://localhost:3000` - here you can explore the Loki and Prometheus data for logs and metrics.
-- Jaegar at `http://localhost:16686` - here you can explore traces.
-- Zipkin at `http://localhost:9411` - here you can explore an alternative tracing backennd.
+- Grafana at `http://localhost:3000` - here you can explore the Loki and Prometheus data for logs and metrics. Use the explore datasources feature.
+- Jaegar at `http://localhost:16686` - here you can explore traces. Open them up and find the attached events and exception info.
+- Zipkin at `http://localhost:9411` - here you can explore an alternative tracing backend.
 
 ## Guide to configuration files
 
