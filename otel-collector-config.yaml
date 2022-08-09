@@ -34,7 +34,12 @@ exporters:
         os.description: "os"
         deployment.environment: "env"
         service.name: "service"
-        
+
+  datadog: 
+    api:
+      site: datadoghq.com
+      key: <ADD DD_API_KEY HERE>
+          
 
 processors:
   batch:
@@ -52,7 +57,7 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging, zipkin, jaeger]
+      exporters: [logging, zipkin, jaeger, datadog]
     metrics:
       receivers: [otlp]
       processors: [batch]

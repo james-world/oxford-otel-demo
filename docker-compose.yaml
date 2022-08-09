@@ -30,7 +30,7 @@ services:
     depends_on:
       - jaeger-all-in-one
       - zipkin-all-in-one
-        
+              
   prometheus:
     container_name: prometheus
     image: prom/prometheus:v2.36.2
